@@ -1,28 +1,10 @@
-# Vite + React
+# AOT Memory Game
 
-This is a template repo branch for a Vite React app.  
-This Branch serves specifically for apps that will be built with my own css and react
+This is a fun project, using react useEffect to fetch data from an api and load them into  
+the app
 
 ## Notes
 
-- **Certain** folders can be removed if not needed
+- **COPYRIGHT NOT INTENDED:** I do not own any of the content and infringement of copyright is not intended
 
-### File Structure
-
-``` File Structure
-react-template/
-├── src/                # Source files
-│   ├── components/     # Reusable React components
-│   ├── pages/          # Page-level components
-│   ├── App.jsx
-│   ├── App.css
-│   ├── main.jsx
-│   └── index.css
-├── .gitignore
-├── eslint.config.js
-├── index.html
-├── package-lock.json
-├── package.json
-├── README.md
-└── vite.config.js
-```
+link to live preview: [AOT Memory Game](https://aotmemory.netlify.app/)
