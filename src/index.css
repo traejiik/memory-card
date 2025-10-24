@@ -1,10 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
+:root {
+    --green: #3C5B49 ; /* Backgrounds, containers, neutral text. Keeps things calm. */
+    --brown: #6C4F3D; /* Primary buttons, headings, or nav bars. Eye-catching but still professional. */
+    --grey: #8B8C89; /* Secondary elements, hover states, subtle highlights. */
+    --red: #8B0000; /* Links, icons, or status indicators (positive states). */
+    --flesh: #D6A77A; /* Call-to-action buttons, warnings, or notification badges. */
+    --steel: #B0B7C3;
+    --sand: #D9CBB6;
+}
+
+@font-face {
+  font-family: Ditty; /* set name */
+  src: url(/fonts/Ditty.ttf); /* url of the font */
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+body {
+    background: linear-gradient(to right, var(--green), var(--brown));
+    font-family: 'Comfortaa', sans-serif;
+    transition-duration: 200ms;
+}
+
+h1 {
+    font-family: Ditty;
+}
+
 .container {
     width: 100vw;
-    padding: 5em;
+    padding: 0 5em;
+}
+
+header ,section {
+    padding: 1em;
 }
