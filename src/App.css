@@ -1,6 +1,102 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 .name {
+  font-size: 65px;
+  text-shadow: 1px 1px 2px var(--flesh);
+}
+
+h1 .gameTitle {
+  background-image: linear-gradient(to left, var(--steel), var(--grey));
+  background-repeat: repeat;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.scoreCard {
+  border: 3px solid var(--grey);
+  display: flex;
+  gap: 5em;
+  border-radius: 30px;
+  background: linear-gradient(to right, var(--steel), var(--grey));
+  justify-content: space-evenly;
+  align-items: center;
+  min-height: 5em;
+  padding: 1em;
+  min-width: 350px;
+}
+
+.current,
+.best {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.current .title,
+.best .title {
+  font-size: medium;
+}
+
+.current .value,
+.best .value {
+  font-size: 27px;
+  font-weight: 700;
+}
+
 .cardContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px ,1fr));
-    gap: 1em;
-    padding: 1em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5em;
+  margin-bottom: 60px;
+}
+
+.card {
+  border: 1px solid var(--grey);
+  background: var(--steel);
+  border-radius: 2em;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  align-items: center;
+  transition: transform ease-out 400ms;
+  max-height: 435px;
+}
+
+.card:hover {
+  box-shadow: 0px 1px 16px var(--red);
+  transform: scale(1.03);
+  transition: transform ease-out 400ms;
+}
+
+.cardImgContainer {
+  border-radius: 1.5em;
+  max-width: 100%;
+  max-height: auto;
+  overflow: hidden;
+}
+
+.cardImg {
+  object-fit: cover;
+}
+
+.cardName {
+  font-family: Ditty;
+  font-size: 28px;
 }
