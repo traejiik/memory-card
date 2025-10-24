@@ -9,16 +9,20 @@ function App() {
   });
   const [characters, setCharacters] = useState([]);
   const [clicked, setClicked] = useState([]);
+  const [loading, setLoading] = useState(false);
   const apiUrl = 'https://api.attackontitanapi.com/characters/188,1,2,5,8,10,12,86,87,88,101,184';
 
   useEffect(() => {
     (async () => {
       try {
+        setLoading(true);
         const data = await fetch(apiUrl, { mode: 'cors' });
         const characters = await data.json();
         setCharacters(characters);
       } catch {
         console.log('Could not load api');
+      } finally {
+        setLoading(false);
       }
     })();
   }, []);
@@ -69,17 +73,47 @@ function App() {
           </section>
         </header>
         <section className="cardContainer">
-          {characters.map((character) => {
-            return (
-              <Card
-                key={character.id}
-                img={character.img}
-                id={character.id}
-                name={character.name}
-                onClick={handleCardClick}
-              />
-            );
-          })}
+          {loading ? (
+            <div className='loaderContainer'>
+              <div className='loader'>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150">
+                  <path
+                    fill="none"
+                    stroke="#B0B7C3"
+                    stroke-width="28"
+                    stroke-linecap="round"
+                    stroke-dasharray="300 385"
+                    stroke-dashoffset="0"
+                    d="M275 75c0 31-27 50-50 50-58 0-92-100-150-100-28 0-50 22-50 50s23 50 50 50c58 0 92-100 150-100 24 0 50 19 50 50Z"
+                  >
+                    <animate
+                      attributeName="stroke-dashoffset"
+                      calcMode="spline"
+                      dur="2"
+                      values="685;-685"
+                      keySplines="0 0 1 1"
+                      repeatCount="indefinite"
+                    ></animate>
+                  </path>
+                </svg>
+                <p>loading...</p>
+              </div>
+            </div>
+          ) : (
+            <>
+              {characters.map((character) => {
+                return (
+                  <Card
+                    key={character.id}
+                    img={character.img}
+                    id={character.id}
+                    name={character.name}
+                    onClick={handleCardClick}
+                  />
+                );
+              })}
+            </>
+          )}
         </section>
       </div>
     </>
