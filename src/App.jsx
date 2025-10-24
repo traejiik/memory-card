@@ -50,31 +50,39 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <div className="scoreCard">
-        <div>
-          <p>Score</p>
-          <p>{score.current}</p>
-        </div>
-        <div>
-          <p>Best Score</p>
-          <p>{score.best}</p>
-        </div>
+    <>
+      <div className="container">
+        <header>
+          <h1>
+            <span className="name">Attack on Titan</span>
+            <span className="gameTitle">Memory Game</span>
+          </h1>
+          <section className="scoreCard">
+            <div className="current">
+              <p className="title">Current Score:</p>
+              <p className="value">{score.current}</p>
+            </div>
+            <div className="best">
+              <p className="title">Best Score:</p>
+              <p className="value">{score.best}</p>
+            </div>
+          </section>
+        </header>
+        <section className="cardContainer">
+          {characters.map((character) => {
+            return (
+              <Card
+                key={character.id}
+                img={character.img}
+                id={character.id}
+                name={character.name}
+                onClick={handleCardClick}
+              />
+            );
+          })}
+        </section>
       </div>
-      <div className="cardContainer">
-        {characters.map((character) => {
-          return (
-            <Card
-              key={character.id}
-              img={character.img}
-              id={character.id}
-              name={character.name}
-              onClick={handleCardClick}
-            />
-          );
-        })}
-      </div>
-    </div>
+    </>
   );
 }
 
